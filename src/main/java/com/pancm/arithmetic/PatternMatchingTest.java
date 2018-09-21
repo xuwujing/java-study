@@ -5,6 +5,7 @@ import java.util.Scanner;
 /**
  * @Title: PatternMatchingTest
  * @Description: 模式匹配算法
+ * 来源:http://www.cnblogs.com/jiaohanhan/p/6654874.html
  * @Version:1.0.0
  * @author pancm
  * @date 2018年9月14日
