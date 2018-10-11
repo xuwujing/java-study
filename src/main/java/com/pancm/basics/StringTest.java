@@ -18,6 +18,16 @@ public class StringTest {
 		  System.out.println(hello+","+newHello+","+str);
 		  test1();
 		  test3();
+		  
+		  System.out.println("=="+"-2".indexOf("-1"));
+		  System.out.println("=="+"-1".indexOf("-1"));
+		  System.out.println("=="+"0".indexOf("-1"));
+		  System.out.println("=="+"1".indexOf("-1"));
+		  String string = null;
+		  System.out.println(""+string);
+		  System.out.println((""+string));
+		  System.out.println(string+"");
+		  System.out.println(string+"1");
 	  }
 	  
 	  
