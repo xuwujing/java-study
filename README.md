@@ -50,7 +50,8 @@
 - [适配器模式和桥接模式](https://www.cnblogs.com/xuwujing/p/9520851.html)
 - [外观模式和装饰器模式](https://www.cnblogs.com/xuwujing/p/9545272.html)
 - [组合模式和过滤器模式](https://www.cnblogs.com/xuwujing/p/9630850.html)
-
+- [享元模式和代理模式](https://www.cnblogs.com/xuwujing/p/9704228.html)
+- [责任链模式和命令模式](https://www.cnblogs.com/xuwujing/p/9794886.html)
 
 
 
