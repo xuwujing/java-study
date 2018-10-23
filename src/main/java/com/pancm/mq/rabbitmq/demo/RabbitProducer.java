@@ -2,10 +2,11 @@ package com.pancm.mq.rabbitmq.demo;
 
 import java.util.HashMap;
 import java.util.Map;
+
 import com.alibaba.fastjson.JSON;
-import com.rabbitmq.client.ConnectionFactory;
-import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.Channel;
+import com.rabbitmq.client.Connection;
+import com.rabbitmq.client.ConnectionFactory;
 
 //生产者
 public class RabbitProducer {

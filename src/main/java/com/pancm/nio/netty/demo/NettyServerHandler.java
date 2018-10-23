@@ -1,10 +1,10 @@
 package com.pancm.nio.netty.demo;
 
-import io.netty.channel.ChannelHandlerContext;
-import io.netty.channel.SimpleChannelInboundHandler;
-
 import java.net.InetAddress;
 import java.util.Date;
+
+import io.netty.channel.ChannelHandlerContext;
+import io.netty.channel.SimpleChannelInboundHandler;
 
 
 /**

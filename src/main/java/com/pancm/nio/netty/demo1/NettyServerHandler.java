@@ -1,9 +1,9 @@
 package com.pancm.nio.netty.demo1;
 
+import java.net.InetAddress;
+
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
-
-import java.net.InetAddress;
 
 /**
  * 

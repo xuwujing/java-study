@@ -1,5 +1,7 @@
 package com.pancm.nio.netty.demo6;
 
+import java.net.InetAddress;
+
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelFutureListener;
@@ -13,7 +15,6 @@ import io.netty.handler.codec.http.HttpMethod;
 import io.netty.handler.codec.http.HttpResponseStatus;
 import io.netty.handler.codec.http.HttpVersion;
 import io.netty.util.CharsetUtil;
-import java.net.InetAddress;
 
 /**
  * 

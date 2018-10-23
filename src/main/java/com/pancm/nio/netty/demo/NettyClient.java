@@ -1,13 +1,13 @@
 package com.pancm.nio.netty.demo;
 
 
+import java.io.IOException;
+
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.Channel;
 import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioSocketChannel;
-
-import java.io.IOException;
 /**
  * 
 * Title: NettyClient

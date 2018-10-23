@@ -1,6 +1,6 @@
 package com.pancm.nio.netty.demo3;
 
-import io.netty.channel.ChannelHandlerContext;  
+import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;  
 
 /**
