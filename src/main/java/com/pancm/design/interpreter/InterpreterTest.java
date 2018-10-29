@@ -29,9 +29,9 @@ public class InterpreterTest {
 		
 		/*
 		 输出结果：
-		 百度翻译：好好学习，天天向上! 的英文是  Study hard.
-		有道翻译：好好学习，天天向上! 的英文是  study hard and make progress every day
-		xuwujing翻译：好好学习，天天向上! 的英文是  Good good study, day day up.
+		 百度翻译：好好学习，天天向上! 的英文是  Study hard and keep up!
+		有道翻译：好好学习，天天向上! 的英文是  study hard and make progress every day！
+		xuwujing翻译：好好学习，天天向上! 的英文是  Good good study, day day up！
 		 
 		 */
 		
@@ -66,7 +66,7 @@ class  BaiduExpreeion implements Expreeion{
 	public void interpert(String word) {
 		//如果是这句就翻译
 		if(str.equals(word)) {
-			System.out.println("百度翻译："+word+" 的英文是  Study hard.");
+			System.out.println("百度翻译："+word+" 的英文是  Study hard and keep up!");
 		}
 	}
 }
@@ -77,7 +77,7 @@ class  YouDaoExpreeion implements Expreeion{
 	public void interpert(String word) {
 		//如果是这句就翻译
 		if(str.equals(word)) {
-			System.out.println("有道翻译："+word+" 的英文是  study hard and make progress every day");
+			System.out.println("有道翻译："+word+" 的英文是  study hard and make progress every day！");
 		}
 	}
 }
@@ -88,7 +88,7 @@ class  XuWuJingExpreeion implements Expreeion{
 	public void interpert(String word) {
 		//如果是这句就翻译
 		if(str.equals(word)) {
-			System.out.println("xuwujing翻译："+word+" 的英文是  Good good study, day day up.");
+			System.out.println("xuwujing翻译："+word+" 的英文是  Good good study, day day up！");
 		}
 	}
 }
