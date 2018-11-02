@@ -3,9 +3,13 @@ package com.pancm.arithmetic;
 import java.util.Arrays;
 
 /**
- * @author ZERO
- * @Data 2017-5-31 下午5:30:29
- * @Description  数组排序算法 主要是冒泡、二分和快速排序
+ * 
+* @Title: SortTest
+* @Description: 排序算法
+* 主要包括插入、二分、冒泡和快排算法
+* @Version:1.0.0  
+* @author pancm
+* @date 2017-5-31
  */
 public class SortTest {
 
