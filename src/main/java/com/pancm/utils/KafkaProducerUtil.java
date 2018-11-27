@@ -1,5 +1,6 @@
 package com.pancm.utils;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
@@ -74,7 +75,42 @@ public  final class KafkaProducerUtil {
 		}
 		return flag;
 	}
-
+	
+	
+	/**
+	 * 向kafka发送批量消息
+	 * @param listMsg 发送的消息
+	 * @param url 发送的地址
+	 * @param topicName 消息名称
+	 * @param num 每次发送的条数
+	 * @return
+	 * @throws Exception 
+	 */
+	public static boolean sendMessage(List<String> listMsg,String url,String topicName,int num) throws Exception{
+		KafkaProducer<String, String> producer=null;
+		boolean falg=false;
+		try{
+			Properties props=init(url);
+			producer= new KafkaProducer<String, String>(props);
+			List<String> listMsg2 =new ArrayList<String>();
+			for(int i = 1,j = listMsg.size();i<=j;i++){
+				listMsg2.add(listMsg.get(i-1));
+				if(i%num==0 || i == j){
+					producer.send(new ProducerRecord<String, String>(topicName,listMsg2.toString()));
+					listMsg2.clear();
+				}
+			}
+			falg=true;
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally{
+			if(producer!=null){
+				producer.close();
+			}
+		}
+		return falg;
+	}
+	
 	/**
 	 * 初始化配置
 	 * @param url kafka地址,多个地址则用‘,’隔开
