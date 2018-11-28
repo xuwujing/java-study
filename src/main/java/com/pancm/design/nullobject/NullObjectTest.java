@@ -77,7 +77,7 @@ class NullUser implements AbstractUser {
 
 	@Override
 	public String getName() {
-		return "user is not exit";
+		return "user is not exist";
 	}
 
 	@Override
