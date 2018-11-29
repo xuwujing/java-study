@@ -148,9 +148,10 @@ class  Bangumi implements BangumiSubject {
     
     @Override
     public void callOff(UserObserver user) {
-        if(!list.isEmpty())
+        if(!list.isEmpty()) {
         	System.out.println("用户"+user.getName()+"取消订阅"+anime+"!");
-            list.remove(user);
+        	list.remove(user);
+        }
     }
 
     @Override
