@@ -90,6 +90,7 @@ public class MapTest {
 	
 	
 	
+	@SuppressWarnings("unused")
 	private static void getMap1(){
 		Map<Integer,Integer> map1 =new HashMap<Integer,Integer>();
 		Map<Integer,Integer> map2 =new HashMap<Integer,Integer>();
