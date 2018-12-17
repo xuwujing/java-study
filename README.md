@@ -55,6 +55,7 @@
 - [解释器模式和迭代器模式](https://www.cnblogs.com/xuwujing/p/9873514.html)
 - [访问者模式和中介者模式](https://www.cnblogs.com/xuwujing/p/9911997.html)
 - [策略模式和模板方法模式](https://www.cnblogs.com/xuwujing/p/9954263.html)
+- [观察者模式和空对象模式](https://www.cnblogs.com/xuwujing/p/10036204.html)
 
 
 
