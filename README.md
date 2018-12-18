@@ -1,13 +1,19 @@
 ## java-study
 
-[java-study](https://github.com/xuwujing/java-study) 是本人学习Java过程中记录的一些代码！从Java基础的数据类型、IO、集合、线程等等技术以及一些常用框架，netty、mina、springboot、kafka、storm、zookeeper、redis、hbase、hive等等。
+**介绍**
+[java-study](https://github.com/xuwujing/java-study) 是本人学习Java过程中记录的一些代码！从Java基础的数据类型、jdk1.8的使用、IO、集合、线程等等技术以及一些常用框架，netty、mina、springboot、kafka、storm、zookeeper、redis、hbase、hive等等。
 
+**使用**
 
+下载：
+ 
+    git clone https://github.com/xuwujing/java-study
+
+然后使用maven方式导入IDE中运行main方法即可。
 
 
 ## 项目结构
 
-**项目结构:**
 
     com.pancm.arithmetic - 一些算法相关类 
     com.pancm.basics - 一些Java基础相关类 主要是三大特性、修饰符、io、集合、反射、克隆等等相关代码
@@ -56,6 +62,7 @@
 - [访问者模式和中介者模式](https://www.cnblogs.com/xuwujing/p/9911997.html)
 - [策略模式和模板方法模式](https://www.cnblogs.com/xuwujing/p/9954263.html)
 - [观察者模式和空对象模式](https://www.cnblogs.com/xuwujing/p/10036204.html)
+- [总结篇](https://www.cnblogs.com/xuwujing/p/10134494.html)
 
 
 
