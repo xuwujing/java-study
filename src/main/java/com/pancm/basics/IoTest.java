@@ -30,9 +30,9 @@ public class IoTest {
 //			test2();
 //			test3();
 //			test4();
-//			test5();
+			test5();
 //			test6();
-			test7();
+//			test7();
 		
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -211,6 +211,7 @@ public class IoTest {
 		File f = new File(path);
 		File f2 = new File(path2);
 		File f3 = new File(path3);
+		System.out.println(f.exists());
 		//创建文件夹
 		System.out.println("="+f.mkdir());
 		//创建文件夹和所有父文件夹
