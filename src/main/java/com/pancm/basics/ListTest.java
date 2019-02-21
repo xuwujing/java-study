@@ -1,6 +1,7 @@
 package com.pancm.basics;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
@@ -27,9 +28,10 @@ public class ListTest {
 	public static void main(String[] args) {
 //		test1();
 //		test2();
-//		test3();
-		test4();
+		test3();
+//		test4();
 //		test5();
+		
 		
 		Vector<String> v=new Vector<>();
 	}
@@ -116,12 +118,13 @@ public class ListTest {
 		ls1.add("b");
 		ls1.add("c");
 		ls2.add("a");
-		ls2.add("d");
+		ls2.add("b");
+		ls2.add("c");
 		ls2.add("e");
 //        System.out.println("合集:"+addAll(ls1,ls2));			
-        System.out.println("交集 :"+retainAll(ls1,ls2));		
-        System.out.println("差集 :"+removeAll(ls1,ls2));		
-        System.out.println("并集 :"+andAll(ls1,ls2));		
+//        System.out.println("交集 :"+retainAll(ls1,ls2));		
+        System.out.println("差集 :"+removeAll(ls2,ls1));		
+//        System.out.println("并集 :"+andAll(ls1,ls2));		
 		
 	}
 	
@@ -270,8 +273,8 @@ public class ListTest {
 	 * @return
 	 */
 	private static List<String> removeAll(List<String> ls1,List<String>ls2){
+		System.out.println("ls1:"+ls1+";ls2:"+ls2);
 		ls1.removeAll(ls2);
-		System.out.println(ls1+";ls2:"+ls2);
 		return ls1;
 	}
 	
