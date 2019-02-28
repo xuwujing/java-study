@@ -1,14 +1,15 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>1.0.0</groupId>
-	<artifactId>java_study</artifactId> 
+	<artifactId>java_study</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
- 
+
 	<name>java_study</name>
-	<url>http://maven.apache.org</url> 
+	<url>http://maven.apache.org</url>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -28,15 +29,15 @@
 			<artifactId>junit</artifactId>
 			<version>4.12</version>
 		</dependency>
- 
-		
+
+
 		<dependency>
-            <groupId>jdk.tools</groupId>
-            <artifactId>jdk.tools</artifactId>
-            <version>1.8</version>
-            <scope>system</scope>
-            <systemPath>${JAVA_HOME}/lib/tools.jar</systemPath>
-   	 </dependency>
+			<groupId>jdk.tools</groupId>
+			<artifactId>jdk.tools</artifactId>
+			<version>1.8</version>
+			<scope>system</scope>
+			<systemPath>${JAVA_HOME}/lib/tools.jar</systemPath>
+		</dependency>
 
 
 		<!--日志 -->
@@ -102,8 +103,8 @@
 			<artifactId>commons-lang3</artifactId>
 			<version>3.7</version>
 		</dependency>
-		
-		<!-- 压缩使用的  -->
+
+		<!-- 压缩使用的 -->
 		<dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-compress</artifactId>
@@ -319,8 +320,8 @@
 			<artifactId>zkclient</artifactId>
 			<version>0.10</version>
 		</dependency>
-		
-		
+
+
 		<!--hadoop 相关架包 -->
 		<dependency>
 			<groupId>org.apache.hadoop</groupId>
@@ -369,15 +370,15 @@
 			<artifactId>hbase-common</artifactId>
 			<version>1.4.8</version>
 		</dependency>
-		
-		
+
+
 		<!--Hive相关jar -->
 		<dependency>
 			<groupId>org.apache.hive</groupId>
 			<artifactId>hive-jdbc</artifactId>
 			<version>3.1.1</version>
 		</dependency>
-		
+
 		<!--storm相关jar -->
 		<dependency>
 			<groupId>org.apache.storm</groupId>
@@ -391,7 +392,7 @@
 			<version>1.2.2</version>
 		</dependency>
 
-		
+
 		<!--Spark相关jar -->
 		<dependency>
 			<groupId>org.apache.spark</groupId>
@@ -420,7 +421,26 @@
 			<version>2.4.0</version>
 			<scope>provided</scope>
 		</dependency>
+
+
+
+		<!-- ES 相关jar包 -->
 		
+		<!-- ES高级API -->
+		<dependency>
+			<groupId>org.elasticsearch.client</groupId>
+			<artifactId>elasticsearch-rest-high-level-client</artifactId>
+			<version>6.6.1</version>
+		</dependency>
+
+		<!--Jest工具包 -->
+		<dependency>
+			<groupId>io.searchbox</groupId>
+			<artifactId>jest</artifactId>
+			<version>6.3.1</version>
+		</dependency>
+
+
 		<!-- 大数据相关 jar end -->
 
 
