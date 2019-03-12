@@ -41,7 +41,8 @@ import org.slf4j.LoggerFactory;
 
 /**
  * @Title: EsHighLevelRestTest1
- * @Description: Java High Level REST Client Es高级客户端使用教程一 (基本使用)
+ * @Description: Java High Level REST Client Es高级客户端使用教程一 (基本CRUD使用)
+ 	官方文档地址: https://www.elastic.co/guide/en/elasticsearch/client/java-rest/current/java-rest-high.html
  * @since jdk 1.8
  * @Version:1.0.0
  * @author pancm
@@ -64,8 +65,9 @@ public class EsHighLevelRestTest1 {
 			exists();
 			update();
 			delete();
+			bulk();
 			close();
-		} catch (IOException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 
@@ -346,16 +348,16 @@ public class EsHighLevelRestTest1 {
 		//批量新增
 		request.add(new IndexRequest(index, type, "1")  
 		        .source(XContentType.JSON,"field", "foo"));
-		request.add(new IndexRequest("posts", type, "2")  
+		request.add(new IndexRequest(index, type, "2")  
 		        .source(XContentType.JSON,"field", "bar"));
-		request.add(new IndexRequest("posts", type, "3")  
+		request.add(new IndexRequest(index, type, "3")  
 		        .source(XContentType.JSON,"field", "baz"));
 		
 		//可以进行修改/删除/新增 操作 
-		request.add(new UpdateRequest("posts", "doc", "2") 
+		request.add(new UpdateRequest(index, type, "2") 
 				.doc(XContentType.JSON,"other", "test"));
-		request.add(new DeleteRequest("posts", "doc", "3")); 
-		request.add(new IndexRequest("posts", "doc", "4")  
+		request.add(new DeleteRequest(index, type, "3")); 
+		request.add(new IndexRequest(index, type, "4")  
 		        .source(XContentType.JSON,"field", "baz"));
 		
 		
@@ -446,13 +448,13 @@ public class EsHighLevelRestTest1 {
 		        .constantBackoff(TimeValue.timeValueSeconds(1L), 3));
 		
 		
-		IndexRequest one = new IndexRequest("posts", "doc", "1").
+		IndexRequest one = new IndexRequest(index, type, "1").
 		        source(XContentType.JSON, "title",
 		                "In which order are my Elasticsearch queries executed?");
-		IndexRequest two = new IndexRequest("posts", "doc", "2")
+		IndexRequest two = new IndexRequest(index, type, "2")
 		        .source(XContentType.JSON, "title",
 		                "Current status and upcoming changes in Elasticsearch");
-		IndexRequest three = new IndexRequest("posts", "doc", "3")
+		IndexRequest three = new IndexRequest(index, type, "3")
 		        .source(XContentType.JSON, "title",
 		                "The Future of Federated Search in Elasticsearch");
 		bulkProcessor.add(one);
