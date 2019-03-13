@@ -111,7 +111,7 @@ public class EsHighLevelRestTest1 {
 		 * 第一种方式，通过jsonString进行创建
 		 */
 		// json
-		String jsonString = "{" + "\"user\":\"pancm\"," + "\"postDate\":\"2019-03-08\","
+		String jsonString = "{" + "\"user\":\"pancm\"," + "\"postDate\":\"2019-03-08\","+ "\"age\":\"18\","
 				+ "\"message\":\"study Elasticsearch\"" + "}";
 
 		request.source(jsonString, XContentType.JSON);
@@ -123,6 +123,7 @@ public class EsHighLevelRestTest1 {
 		Map<String, Object> jsonMap = new HashMap<>();
 		jsonMap.put("user", "pancm");
 		jsonMap.put("postDate", "2019-03-08");
+		jsonMap.put("age", "18");
 		jsonMap.put("message", "study Elasticsearch");
 
 		request.source(jsonMap);
@@ -136,6 +137,7 @@ public class EsHighLevelRestTest1 {
 		{
 			builder.field("user", "pancm");
 			builder.timeField("postDate", "2019-03-08");
+			builder.field("age", "18");
 			builder.field("message", "study Elasticsearch");
 		}
 		builder.endObject();
@@ -355,7 +357,7 @@ public class EsHighLevelRestTest1 {
 		
 		//可以进行修改/删除/新增 操作 
 		request.add(new UpdateRequest(index, type, "2") 
-				.doc(XContentType.JSON,"other", "test"));
+				.doc(XContentType.JSON,"field", "test"));
 		request.add(new DeleteRequest(index, type, "3")); 
 		request.add(new IndexRequest(index, type, "4")  
 		        .source(XContentType.JSON,"field", "baz"));
