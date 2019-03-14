@@ -438,11 +438,19 @@
 			<groupId>io.searchbox</groupId>
 			<artifactId>jest</artifactId>
 			<version>6.3.1</version>
-		</dependency>
+		</dependency> 
 
 
 		<!-- 大数据相关 jar end -->
 
 
 	</dependencies>
+	
+	
+		<repositories>
+		<repository>
+			<id>spring-milestone</id>
+			<url>http://repo.spring.io/libs-release</url>
+		</repository>
+	</repositories>
 </project>
