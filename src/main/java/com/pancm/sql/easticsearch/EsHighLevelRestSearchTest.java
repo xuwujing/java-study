@@ -1,9 +1,4 @@
-package com.pancm.sql.easticsearch;
-
-import java.io.IOException;
-import java.util.List;
-import java.util.Map;
-import java.util.concurrent.TimeUnit;
+package com.pancm.test.esTest;
 
 import org.apache.http.HttpHost;
 import org.elasticsearch.action.search.SearchRequest;
@@ -12,6 +7,7 @@ import org.elasticsearch.action.search.ShardSearchFailure;
 import org.elasticsearch.action.support.IndicesOptions;
 import org.elasticsearch.client.RequestOptions;
 import org.elasticsearch.client.RestClient;
+import org.elasticsearch.client.RestClientBuilder;
 import org.elasticsearch.client.RestHighLevelClient;
 import org.elasticsearch.common.unit.Fuzziness;
 import org.elasticsearch.common.unit.TimeValue;
@@ -35,6 +31,11 @@ import org.elasticsearch.search.suggest.term.TermSuggestion;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.IOException;
+import java.util.List;
+import java.util.Map;
+import java.util.concurrent.TimeUnit;
+
 
 /**
  * @Title: EsHighLevelRestSearchTest
@@ -49,7 +50,6 @@ public class EsHighLevelRestSearchTest {
 
 	private static String elasticIp = "192.169.0.23";
 	private static int elasticPort = 9200;
-
 	private static Logger logger = LoggerFactory.getLogger(EsHighLevelRestSearchTest.class);
 
 	private static RestHighLevelClient client = null;
@@ -76,7 +76,8 @@ public class EsHighLevelRestSearchTest {
 	 * 初始化服务
 	 */
 	private static void init() {
-		client = new RestHighLevelClient(RestClient.builder(new HttpHost(elasticIp, elasticPort, "http")));
+		RestClientBuilder restClientBuilder =RestClient.builder(new HttpHost(elasticIp, elasticPort));
+		client = new RestHighLevelClient(restClientBuilder);
 
 	}
 
@@ -89,6 +90,8 @@ public class EsHighLevelRestSearchTest {
 				client.close();
 			} catch (IOException e) {
 				e.printStackTrace();
+			}finally{
+				client=null;
 			}
 		}
 	}
@@ -331,14 +334,10 @@ public class EsHighLevelRestSearchTest {
 		    }
 		}
 		
-		
-		
-		
-		
-		
-		
-		
-		
 	}
+	
+	
+	
+	
 
 }

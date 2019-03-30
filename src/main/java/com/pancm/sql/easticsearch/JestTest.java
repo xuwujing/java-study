@@ -1,26 +1,20 @@
-package com.pancm.sql.easticsearch;
-
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
-
-import org.elasticsearch.index.query.QueryBuilders;
-import org.elasticsearch.search.builder.SearchSourceBuilder;
+package com.pancm.test.esTest;
 
 import io.searchbox.client.JestClient;
 import io.searchbox.client.JestClientFactory;
 import io.searchbox.client.JestResult;
 import io.searchbox.client.config.HttpClientConfig;
-import io.searchbox.core.Bulk;
-import io.searchbox.core.BulkResult;
-import io.searchbox.core.Delete;
-import io.searchbox.core.DocumentResult;
-import io.searchbox.core.Index;
-import io.searchbox.core.Search;
+import io.searchbox.core.*;
 import io.searchbox.indices.CreateIndex;
 import io.searchbox.indices.DeleteIndex;
 import io.searchbox.indices.mapping.GetMapping;
 import io.searchbox.indices.mapping.PutMapping;
+import org.elasticsearch.index.query.QueryBuilders;
+import org.elasticsearch.search.builder.SearchSourceBuilder;
+
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * 
@@ -34,7 +28,7 @@ public class JestTest {
 	    private static JestClient jestClient;  
 	    private static String indexName = "userindex";  
 	    private static String typeName = "user";  
-	    private static String elasticIps="http://127.0.0.1:9200";
+	    private static String elasticIps="http://192.169.0.23:9200,http://192.169.0.24:9200";
 		
 	    
 	    public static void main(String[] args) throws Exception {
@@ -48,8 +42,13 @@ public class JestTest {
 		}
 	    
 	    private static  JestClient getJestClient() {  
-	    	JestClientFactory factory = new JestClientFactory();  
-			factory.setHttpClientConfig(new HttpClientConfig.Builder(elasticIps).connTimeout(60000).readTimeout(60000).multiThreaded(true).build());  
+	    	JestClientFactory factory = new JestClientFactory();
+	    	//指定集群地址，设置超时时间，开启多线程，并发连接最多两个，最大连接数
+			factory.setHttpClientConfig(new HttpClientConfig.Builder(elasticIps)
+					.connTimeout(60000).readTimeout(60000).multiThreaded(true)
+					.defaultMaxTotalConnectionPerRoute(2)
+					.maxTotalConnection(10)
+					.build());
 	        return factory.getObject();  
 	    }  
 	    
@@ -174,7 +173,11 @@ public class JestTest {
 	            Index index = new Index.Builder(obj).build();  
 	             bulk.addAction(index);  
 	        }  
+	        
 	        BulkResult br = jestClient.execute(bulk.build());  
+	        System.out.println("DSL语句:"+br.toString());
+	        System.out.println("DSL语句:"+br.getJsonString());
+	        System.out.println("DSL语句:"+br.getJsonObject());
 	        return br.isSucceeded();  
 	       }  
 	      
@@ -275,9 +278,9 @@ public class JestTest {
 	}
 
 
-	/**  
-	 * 设置编号  
-	 * @param Long id  
+	/**
+	 * 设置编号
+	 * @param Long id
 	 */
 	public void setId(Long id) {
 		this.id = id;
@@ -295,7 +298,7 @@ public class JestTest {
 
 	/**  
 	 * 设置姓名  
-	 * @param String name  
+	 * @param String name
 	 */
 	public void setName(String name) {
 		this.name = name;
@@ -313,7 +316,7 @@ public class JestTest {
 
 	/**  
 	 * 设置年龄  
-	 * @param Integer age  
+	 * @param  age
 	 */
 	public void setAge(Integer age) {
 		this.age = age;
