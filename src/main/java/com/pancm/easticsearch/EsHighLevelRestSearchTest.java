@@ -1,4 +1,4 @@
-package com.pancm.easticsearch;
+package com.pancm.sql.easticsearch;
 
 import java.io.IOException;
 import java.util.List;
