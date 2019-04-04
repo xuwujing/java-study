@@ -17,6 +17,7 @@ import org.elasticsearch.search.aggregations.metrics.avg.Avg;
 import org.elasticsearch.search.aggregations.metrics.max.Max;
 import org.elasticsearch.search.aggregations.metrics.min.Min;
 import org.elasticsearch.search.aggregations.metrics.sum.Sum;
+import org.elasticsearch.search.aggregations.metrics.tophits.TopHits;
 import org.elasticsearch.search.builder.SearchSourceBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -54,7 +55,7 @@ public class EsAggregationSearchTest {
             avgGroupSearch();
             maxGroupSearch();
             sumGroupSearch();
-
+            topSearch();
         } catch (Exception e) {
             e.printStackTrace();
         }finally {
@@ -191,6 +192,11 @@ public class EsAggregationSearchTest {
                 Sum ba = aggregations.get(buk);
                 logger.info(buk+":" + ba.getValue());
                 logger.info("------------------------------------");
+            }else{
+                //取子聚合
+                TopHits ba = aggregations.get(buk);
+                logger.info(buk+":" + ba.getHits().totalHits);
+                logger.info("------------------------------------");
             }
 
 
@@ -274,4 +280,11 @@ public class EsAggregationSearchTest {
             }
         }
     }
+
+    private static  void topSearch() throws  IOException{
+
+
+    }
+
+
 }
