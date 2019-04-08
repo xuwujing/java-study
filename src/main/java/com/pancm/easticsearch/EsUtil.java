@@ -1,4 +1,4 @@
-package com.pancm.test.esTest;
+package com.pancm.easticsearch;
 
 
 import java.io.IOException;
@@ -190,7 +190,7 @@ public final class EsUtil {
 
 
 
-	private static Logger logger = LoggerFactory.getLogger(EsHighLevelRestSearchTest.class);
+	private static Logger logger = LoggerFactory.getLogger(EsUtil.class);
 
 	/**
 	 * @param args
