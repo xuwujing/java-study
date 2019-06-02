@@ -182,6 +182,13 @@
 			<version>2.3.0</version>
 		</dependency>
 
+		<!-- 谷歌的工具包 -->
+		<dependency>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava</artifactId>
+			<version>27.1-jre</version>
+		</dependency>
+
 		<!-- 工具包 end -->
 
 
