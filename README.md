@@ -65,6 +65,11 @@
 
 - [JDK1.8的Lambda、Stream和日期的使用详解](https://www.cnblogs.com/xuwujing/p/10145691.html)
 
+**ElasticSearch相关:**
+- [ElasticSearch实战系列一: ElasticSearch集群+Kinaba安装教程](https://www.cnblogs.com/xuwujing/p/11385255.html)
+- [ElasticSearch实战系列二: ElasticSearch的DSL语句使用教程---图文详解](https://www.cnblogs.com/xuwujing/p/11567053.html)
+
+
 **其他:**
 
 - [个人收集的资源分享](https://www.cnblogs.com/xuwujing/p/10393111.html)
