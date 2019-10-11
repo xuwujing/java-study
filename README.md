@@ -68,6 +68,8 @@
 **ElasticSearch相关:**
 - [ElasticSearch实战系列一: ElasticSearch集群+Kinaba安装教程](https://www.cnblogs.com/xuwujing/p/11385255.html)
 - [ElasticSearch实战系列二: ElasticSearch的DSL语句使用教程---图文详解](https://www.cnblogs.com/xuwujing/p/11567053.html)
+- [ElasticSearch实战系列三: ElasticSearch的JAVA API使用教程](https://www.cnblogs.com/xuwujing/p/11645630.html)
+
 
 
 **其他:**
