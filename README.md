@@ -61,9 +61,17 @@
 - [观察者模式和空对象模式](https://www.cnblogs.com/xuwujing/p/10036204.html)
 - [总结篇](https://www.cnblogs.com/xuwujing/p/10134494.html)
 
-**进阶相关:**
+**JAVA进阶相关:**
 
 - [JDK1.8的Lambda、Stream和日期的使用详解](https://www.cnblogs.com/xuwujing/p/10145691.html)
+
+
+**大数据相关:**
+- [大数据学习系列之三 ----- HBase Java Api 图文详解](https://www.cnblogs.com/xuwujing/p/8039175.html)
+- [Kafka 使用Java实现数据的生产和消费demo](https://www.cnblogs.com/xuwujing/p/8371127.html)
+- [关于Kafka 的 consumer 消费者手动提交详解](https://www.cnblogs.com/xuwujing/p/8432984.html)
+- [Storm 入门的Demo教程](https://www.cnblogs.com/xuwujing/p/8584684.html)
+
 
 **ElasticSearch相关:**
 - [ElasticSearch实战系列一: ElasticSearch集群+Kinaba安装教程](https://www.cnblogs.com/xuwujing/p/11385255.html)
@@ -72,8 +80,13 @@
 
 
 
-**其他:**
+**其他博客:**
 
+- [两年JAVA程序员的面试总结](https://www.cnblogs.com/xuwujing/p/7613084.html)
+- [一个两年java程序猿的2017个人总结](https://www.cnblogs.com/xuwujing/p/8158716.html)
+- [写了一年的博客，我收获了什么](https://www.cnblogs.com/xuwujing/p/8747769.html)
+- [给刚工作不久的程序猿同学的一封信](https://www.cnblogs.com/xuwujing/p/9665966.html)
+- [一个平凡但不平庸的程序猿2018个人总结](https://www.cnblogs.com/xuwujing/p/9665966.html)
 - [个人收集的资源分享](https://www.cnblogs.com/xuwujing/p/10393111.html)
 
 ## 其他
