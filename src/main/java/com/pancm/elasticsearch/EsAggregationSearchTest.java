@@ -1,4 +1,4 @@
-package com.pancm.easticsearch;
+package com.pancm.elasticsearch;
 
 import org.apache.http.HttpHost;
 import org.elasticsearch.action.search.SearchRequest;
@@ -38,7 +38,7 @@ public class EsAggregationSearchTest {
 
     private static String elasticIp = "192.169.0.23";
     private static int elasticPort = 9200;
-    private static Logger logger = LoggerFactory.getLogger(com.pancm.sql.easticsearch.EsHighLevelRestSearchTest.class);
+    private static Logger logger = LoggerFactory.getLogger(EsHighLevelRestSearchTest.class);
 
     private static RestHighLevelClient client = null;
 

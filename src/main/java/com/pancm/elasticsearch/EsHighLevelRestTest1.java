@@ -1,4 +1,4 @@
-package com.pancm.easticsearch;
+package com.pancm.elasticsearch;
 
 import org.apache.http.HttpHost;
 import org.elasticsearch.ElasticsearchException;

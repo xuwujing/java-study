@@ -5,4 +5,4 @@
 * @author pancm
 * @date 2019年2月28日
 */
-package com.pancm.easticsearch;
+package com.pancm.elasticsearch;

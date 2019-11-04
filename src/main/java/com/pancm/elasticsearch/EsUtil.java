@@ -1,4 +1,4 @@
-package com.pancm.easticsearch;
+package com.pancm.elasticsearch;
 
 
 import org.apache.http.HttpHost;
@@ -50,7 +50,7 @@ import java.util.regex.Pattern;
  * @date 2019年3月19日
  */
 public final class EsUtil {
-    private static Logger logger = LoggerFactory.getLogger(com.pancm.sql.easticsearch.EsHighLevelRestSearchTest.class);
+    private static Logger logger = LoggerFactory.getLogger(EsHighLevelRestSearchTest.class);
 
     private EsUtil() {
 
