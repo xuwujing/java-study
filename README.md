@@ -97,6 +97,7 @@
 - [一个平凡但不平庸的程序猿2018个人总结](https://www.cnblogs.com/xuwujing/p/9665966.html)
 - [个人收集的资源分享](https://www.cnblogs.com/xuwujing/p/10393111.html)
 - [一个毕业三年的程序猿对于提升自我的一些建议](https://www.cnblogs.com/xuwujing/p/11735726.html)
+- [认清自我，不在迷茫！2019个人年终总结！](https://www.cnblogs.com/xuwujing/p/12174112.html)
 
 ## 其他
 
