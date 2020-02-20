@@ -102,3 +102,5 @@
 ## 其他
 
 在这些代码中，虽然大部分都是自己写的，但是也有不少是在学习过程中从网上或书上直接摘抄的，当时有些并未标明出处，现在由于忘了出处，有些代码并未标明，若有冒犯，请见谅！
+
+Thanks to [Jetbrains](https://www.jetbrains.com/?from=java-study) for IDE support!
