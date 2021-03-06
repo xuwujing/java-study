@@ -81,11 +81,15 @@
 
 
 **ElasticSearch相关:**
-- [ElasticSearch实战系列一: ElasticSearch集群+Kinaba安装教程](https://www.cnblogs.com/xuwujing/p/11385255.html)
+- [ElasticSearch实战系列一: ElasticSearch集群+Kibana安装教程](https://www.cnblogs.com/xuwujing/p/11385255.html)
 - [ElasticSearch实战系列二: ElasticSearch的DSL语句使用教程---图文详解](https://www.cnblogs.com/xuwujing/p/11567053.html)
 - [ElasticSearch实战系列三: ElasticSearch的JAVA API使用教程](https://www.cnblogs.com/xuwujing/p/11645630.html)
 - [ElasticSearch实战系列四: ElasticSearch理论知识介绍](https://www.cnblogs.com/xuwujing/p/12093933.html)
-
+- [ElasticSearch实战系列五: ElasticSearch的聚合查询基础使用教程之度量(Metric)聚合](https://www.cnblogs.com/xuwujing/p/12385903.html)
+- [ElasticSearch实战系列六: Logstash快速入门](https://www.cnblogs.com/xuwujing/p/13412108.html)
+- [ElasticSearch实战系列七: Logstash实战使用-图文讲解](https://www.cnblogs.com/xuwujing/p/13520666.html)
+- [ElasticSearch实战系列八: Filebeat快速入门和使用---图文详解](https://www.cnblogs.com/xuwujing/p/13532125.html)
+- [ElasticSearch实战系列九: ELK日志系统介绍和安装](https://www.cnblogs.com/xuwujing/p/13870806.html)
 
 
 **其他博客:**
@@ -98,6 +102,7 @@
 - [个人收集的资源分享](https://www.cnblogs.com/xuwujing/p/10393111.html)
 - [一个毕业三年的程序猿对于提升自我的一些建议](https://www.cnblogs.com/xuwujing/p/11735726.html)
 - [认清自我，不在迷茫！2019个人年终总结！](https://www.cnblogs.com/xuwujing/p/12174112.html)
+- [纵然前路坎坷，也要毅然前行！2020年终总结！](https://www.cnblogs.com/xuwujing/p/14233270.html)
 
 ## 其他
 
