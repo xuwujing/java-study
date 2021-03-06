@@ -270,7 +270,7 @@ public class EsAggregationSearchTest {
     private static  void maxSearch() throws  IOException{
         String buk="t_grade";
         AggregationBuilder aggregation = AggregationBuilders.max(buk).field("grade");
-        logger.info("求班级的最分数:");
+        logger.info("求班级的最高分数:");
         agg(aggregation,buk);
     }
 
