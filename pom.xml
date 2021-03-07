@@ -395,9 +395,14 @@
 			<groupId>io.searchbox</groupId>
 			<artifactId>jest</artifactId>
 			<version>6.3.1</version>
-		</dependency> 
+		</dependency>
 
-
+		<!-- excel 工具类-->
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>easyexcel</artifactId>
+			<version>2.2.7</version>
+		</dependency>
 
 
 

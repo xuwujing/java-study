@@ -22,19 +22,19 @@ public class ResponsibilityTest {
 		String name = "xuwujing";
 		String something = "去聚餐";
 		String something2 = "去旅游";
-		Learder learder1 =new Supervisor(name, something);
-		Learder learder2 =new BranchManager(name, something);
-		Learder learder3 =new GeneralManager(name, something);
-		learder1.setLearder(learder2);
-		learder2.setLearder(learder3);
-		learder1.handler(1);
+		Leader leader1 =new Supervisor(name, something);
+		Leader leader2 =new BranchManager(name, something);
+		Leader leader3 =new GeneralManager(name, something);
+		leader1.setLeader(leader2);
+		leader2.setLeader(leader3);
+		leader1.handler(1);
 		
-		Learder learder4 =new Supervisor(name, something2);
-		Learder learder5 =new BranchManager(name, something2);
-		Learder learder6 =new GeneralManager(name, something2);
-		learder4.setLearder(learder5);
-		learder5.setLearder(learder6);
-		learder4.handler(0);
+		Leader leader4 =new Supervisor(name, something2);
+		Leader leader5 =new BranchManager(name, something2);
+		Leader leader6 =new GeneralManager(name, something2);
+		leader4.setLeader(leader5);
+		leader5.setLeader(leader6);
+		leader4.handler(0);
 		
 		
 		
@@ -76,24 +76,24 @@ class ConcreteHandler extends Handler {
 }
 
 
-abstract class Learder{
+abstract class Leader {
 	
 	
-	protected Learder learder;
+	protected Leader leader;
 	
-	protected void setLearder(Learder learder){
-		this.learder=learder;
+	protected void setLeader(Leader leader){
+		this.leader = leader;
 	}
 	
-	protected Learder getLearder(){
-		return learder;
+	protected Leader getLeader(){
+		return leader;
 	}
 	
 	abstract void handler(int  level);
 }
 
 //主管
-class Supervisor extends Learder{
+class Supervisor extends Leader {
 	 private String name;
 	 private String something;
 	 public Supervisor(String name,String something) {
@@ -108,13 +108,13 @@ class Supervisor extends Learder{
 			System.out.println("主管处理了  "+name+"所述的<"+something+">事情!");
 		}else{
 			System.out.println("主管未能处理  "+name+"所述的<"+something+">事情!转交给上级!");
-			getLearder().handler(level);
+			getLeader().handler(level);
 		}
 	}
 }
 
 //部门经理
-class BranchManager extends Learder{
+class BranchManager extends Leader {
 	 private String name;
 	 private String something;
 	 public BranchManager(String name,String something) {
@@ -129,13 +129,13 @@ class BranchManager extends Learder{
 			System.out.println("部门经理处理了  "+name+"所述的<"+something+">事情!");
 		}else{
 			System.out.println("部门经理未能处理  "+name+"所述的<"+something+">事情!转交给上级!");
-			getLearder().handler(level);
+			getLeader().handler(level);
 		}
 	}
 }
 
 //总经理
-class GeneralManager extends Learder{
+class GeneralManager extends Leader {
 	 private String name;
 	 private String something;
 	 public GeneralManager(String name,String something) {
@@ -150,7 +150,7 @@ class GeneralManager extends Learder{
 			System.out.println("总经理处理了  "+name+"所述的<"+something+">事情!");
 		}else{
 			System.out.println("总经理未能处理  "+name+"所述的<"+something+">事情!转交给上级!");
-			getLearder().handler(level);
+			getLeader().handler(level);
 		}
 	}
 }
