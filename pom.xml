@@ -375,7 +375,7 @@
 		<dependency>
 			<groupId>org.apache.storm</groupId>
 			<artifactId>storm-kafka</artifactId>
-			<version>1.2.2</version>
+			<version>1.2.3</version>
 			<scope>provided</scope>
 		</dependency>
 
