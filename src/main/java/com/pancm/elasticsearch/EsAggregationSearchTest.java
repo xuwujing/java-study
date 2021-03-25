@@ -8,13 +8,17 @@ import org.elasticsearch.action.admin.indices.get.GetIndexRequest;
 import org.elasticsearch.action.bulk.BulkRequest;
 import org.elasticsearch.action.search.SearchRequest;
 import org.elasticsearch.action.search.SearchResponse;
+import org.elasticsearch.action.support.IndicesOptions;
 import org.elasticsearch.action.update.UpdateRequest;
 import org.elasticsearch.client.RequestOptions;
 import org.elasticsearch.client.RestClient;
 import org.elasticsearch.client.RestClientBuilder;
 import org.elasticsearch.client.RestHighLevelClient;
 import org.elasticsearch.common.xcontent.XContentType;
+import org.elasticsearch.index.query.BoolQueryBuilder;
+import org.elasticsearch.index.query.QueryBuilders;
 import org.elasticsearch.rest.RestStatus;
+import org.elasticsearch.script.Script;
 import org.elasticsearch.search.aggregations.Aggregation;
 import org.elasticsearch.search.aggregations.AggregationBuilder;
 import org.elasticsearch.search.aggregations.AggregationBuilders;
@@ -23,10 +27,13 @@ import org.elasticsearch.search.aggregations.bucket.histogram.DateHistogramInter
 import org.elasticsearch.search.aggregations.bucket.terms.Terms;
 import org.elasticsearch.search.aggregations.bucket.terms.TermsAggregationBuilder;
 import org.elasticsearch.search.aggregations.metrics.avg.Avg;
+import org.elasticsearch.search.aggregations.metrics.cardinality.CardinalityAggregationBuilder;
 import org.elasticsearch.search.aggregations.metrics.max.Max;
 import org.elasticsearch.search.aggregations.metrics.min.Min;
 import org.elasticsearch.search.aggregations.metrics.sum.Sum;
 import org.elasticsearch.search.aggregations.metrics.tophits.TopHits;
+import org.elasticsearch.search.aggregations.pipeline.PipelineAggregatorBuilders;
+import org.elasticsearch.search.aggregations.pipeline.bucketselector.BucketSelectorPipelineAggregationBuilder;
 import org.elasticsearch.search.builder.SearchSourceBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -270,7 +277,7 @@ public class EsAggregationSearchTest {
     private static  void maxSearch() throws  IOException{
         String buk="t_grade";
         AggregationBuilder aggregation = AggregationBuilders.max(buk).field("grade");
-        logger.info("求班级的最分数:");
+        logger.info("求班级的最高分数:");
         agg(aggregation,buk);
     }
 
@@ -393,6 +400,28 @@ public class EsAggregationSearchTest {
         });
     }
 
+    private static void agg(List<Map<String, Object>> list, Aggregations aggregations) {
+        aggregations.forEach(aggregation -> {
+            String name = aggregation.getName();
+            Terms genders = aggregations.get(name);
+            for (Terms.Bucket entry : genders.getBuckets()) {
+                String key = entry.getKey().toString();
+                long t = entry.getDocCount();
+                Map<String,Object> map =new HashMap<>();
+                map.put(name,key);
+                map.put(name+"_"+"count",t);
+                //判断里面是否还有嵌套的数据
+                List<Aggregation> list2 = entry.getAggregations().asList();
+                if (list2.isEmpty()) {
+                    list.add(map);
+                }else{
+                    agg(list, entry.getAggregations());
+                }
+            }
+        });
+        System.out.println(list);
+    }
+
 
 
     private static SearchResponse search(AggregationBuilder aggregation) throws IOException {
@@ -472,6 +501,99 @@ public class EsAggregationSearchTest {
             }
         }
     }
+
+    /**
+     * @Author pancm
+     * @Description having
+     * @Date  2020/8/21
+     * @Param []
+     * @return void
+     **/
+    private static void havingSearch() throws IOException{
+        String index="";
+        SearchRequest searchRequest = new SearchRequest(index);
+        searchRequest.indices(index);
+        SearchSourceBuilder sourceBuilder = new SearchSourceBuilder();
+        BoolQueryBuilder boolQueryBuilder = new BoolQueryBuilder();
+        searchRequest.indicesOptions(IndicesOptions.lenientExpandOpen());
+        String alias_name = "nas_ip_address_group";
+        String group_name = "nas_ip_address";
+        String query_name = "acct_start_time";
+        String query_type = "gte,lte";
+        String query_name_value="2020-08-05 13:25:55,2020-08-20 13:26:55";
+        String[] query_types= query_type.split(",");
+        String[] query_name_values= query_name_value.split(",");
+
+        for (int i = 0; i < query_types.length; i++) {
+            if("gte".equals(query_types[i])){
+                boolQueryBuilder.must(QueryBuilders.rangeQuery(query_name).gte(query_name_values[i]));
+            }
+            if("lte".equals(query_types[i])){
+                boolQueryBuilder.must(QueryBuilders.rangeQuery(query_name).lte(query_name_values[i]));
+            }
+        }
+
+        AggregationBuilder aggregationBuilder = AggregationBuilders.terms(alias_name).field(group_name).size(Integer.MAX_VALUE);
+
+        //声明BucketPath，用于后面的bucket筛选
+        Map<String, String> bucketsPathsMap = new HashMap<>(8);
+        bucketsPathsMap.put("groupCount", "_count");
+        //设置脚本
+        Script script = new Script("params.groupCount >= 1000");
+        //构建bucket选择器
+        BucketSelectorPipelineAggregationBuilder bs =
+                PipelineAggregatorBuilders.bucketSelector("having", bucketsPathsMap, script);
+        aggregationBuilder.subAggregation(bs);
+        sourceBuilder.aggregation(aggregationBuilder);
+        //不需要解释
+        sourceBuilder.explain(false);
+        //不需要原始数据
+        sourceBuilder.fetchSource(false);
+        //不需要版本号
+        sourceBuilder.version(false);
+        sourceBuilder.query(boolQueryBuilder);
+        searchRequest.source(sourceBuilder);
+
+
+        System.out.println(sourceBuilder);
+        // 同步查询
+        SearchResponse searchResponse = client.search(searchRequest, RequestOptions.DEFAULT);
+        // 查询条数
+        long count = searchResponse.getHits().getHits().length;
+        Aggregations aggregations = searchResponse.getAggregations();
+//        agg(aggregations);
+        Map<String,Object> map =new HashMap<>();
+        List<Map<String,Object>> list =new ArrayList<>();
+        agg(list,aggregations);
+//        System.out.println(map);
+        System.out.println(list);
+    }
+
+
+    /**
+     * @Author pancm
+     * @Description 去重
+     * @Date  2020/8/26
+     * @Param []
+     * @return void
+     **/
+    private static void distinctSearch() throws IOException{
+        String buk="group";
+        String distinctName="name";
+        AggregationBuilder aggregation = AggregationBuilders.terms("age").field("age");
+        CardinalityAggregationBuilder cardinalityBuilder  = AggregationBuilders.cardinality(distinctName).field(distinctName);
+        //根据创建时间按天分组
+//        AggregationBuilder aggregation3 = AggregationBuilders.dateHistogram("createtm")
+//                .field("createtm")
+//                .format("yyyy-MM-dd")
+//                .dateHistogramInterval(DateHistogramInterval.DAY);
+//
+//        aggregation2.subAggregation(aggregation3);
+        aggregation.subAggregation(cardinalityBuilder);
+        agg(aggregation,buk);
+    }
+
+
 
     private static  void topSearch() throws  IOException{
 
